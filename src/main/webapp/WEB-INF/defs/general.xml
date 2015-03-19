@@ -13,4 +13,10 @@
     <put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />
     
   </definition>
+  
+  <definition name="users.pu" extends="general.pu">
+    <put-attribute name="title" value="Users" />
+    <put-attribute name="body" value="/WEB-INF/jsp/users.jsp" />
+    
+  </definition>
 </tiles-definitions>
