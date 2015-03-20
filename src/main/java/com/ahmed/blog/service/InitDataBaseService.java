@@ -57,7 +57,7 @@ public class InitDataBaseService {
 		
 		Blog blogJava = new Blog();
 		blogJava.setName("java");
-		blogJava.setUrl("www.ahmedbenamor.com");
+		blogJava.setUrl("http://www.ahmedbenamor.com/myblog");
 		blogJava.setUser(admin);
 		blogRepository.save(blogJava);
 		

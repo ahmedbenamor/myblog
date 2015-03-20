@@ -11,14 +11,16 @@
 		<div class="col-sm-10">
 			<form:input path="name" type="text" class="form-control" id="name"
 				placeholder="Name" name="name" />
+				<form:errors path="name"/>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="email" class="col-sm-2 control-label">Email :</label>
 		<div class="col-sm-10">
-			<form:input path="email" type="email" class="form-control" id="email"
+			<form:input path="email" type="text" class="form-control" id="email"
 				placeholder="Email" name="email" />
+				<form:errors path="email"/>
 		</div>
 	</div>
 
@@ -29,6 +31,7 @@
 		<div class="col-sm-10">
 			<form:password path="password" class="form-control" id="email"
 				placeholder="Password" name="password" />
+				<form:errors path="password"/>
 		</div>
 	</div>
 

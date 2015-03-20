@@ -12,7 +12,7 @@
 </button>
 
 <!-- Modal -->
-<form:form commandName="blog" cssClass="form-horizontal">
+<form:form commandName="blog" cssClass="form-horizontal" method="POST">
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -27,6 +27,7 @@
 		<div class="col-sm-10">
 			<form:input path="name" type="text" class="form-control" id="name"
 				placeholder="Name" name="name" />
+				<form:errors path="name"/>
 		</div>
 		</div>
 		 <div class="form-group">
@@ -34,6 +35,7 @@
 		<div class="col-sm-10">
 			<form:input path="url" type="text" class="form-control" id="url"
 				placeholder="URL" name="url" />
+				<form:errors path="url"/>
 		</div>
 	</div>
        
