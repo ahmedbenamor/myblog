@@ -44,6 +44,7 @@ public class InitDataBaseService {
 		
 		UserBlog admin = new UserBlog();
 		admin.setName("admin");
+		admin.setPassword("admin");
 		List<RoleBlog> roles = new ArrayList<RoleBlog>();
 		roles.add(role_admin);
 		roles.add(role_user);
