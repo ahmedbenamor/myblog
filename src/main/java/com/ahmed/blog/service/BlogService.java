@@ -1,6 +1,8 @@
 package com.ahmed.blog.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.method.P;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import com.ahmed.blog.entity.Blog;
@@ -24,9 +26,15 @@ public class BlogService {
 		
 	}
 
-	public void delete(Long id) {
-		blogRepository.delete(id);
+	@PreAuthorize("#blog.user.name == authentication.name or hasRole('ROLE_ADMIN')")
+	public void delete(@P("blog") Blog blog) {
+		blogRepository.delete(blog);
 		
+	}
+
+	public Blog findOne(Long id) {
+		
+		return blogRepository.findOne(id);
 	}
 	
 	
