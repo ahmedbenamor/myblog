@@ -4,8 +4,10 @@ import org.hibernate.engine.jdbc.connections.internal.UserSuppliedConnectionProv
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ahmed.blog.repository.UserBlogRepository;
 import com.ahmed.blog.service.UserService;
 
 @Controller
@@ -20,5 +22,13 @@ public class UserController {
 		return "users.pu";
 		
 	}
-
+	
+	@RequestMapping("/users/{id}")
+	public String showUser(@PathVariable String  id, Model model)
+	{
+		Long idUser = Long.valueOf(id);
+		model.addAttribute("user", userService.findUserById(idUser));
+		
+		return "user_info.pu";
+	}
 }

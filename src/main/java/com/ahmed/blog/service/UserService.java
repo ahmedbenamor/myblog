@@ -18,4 +18,9 @@ public class UserService {
 		return userBlogRepository.findAll();
 	}
 
+	public UserBlog findUserById(Long idUser) {
+		// TODO Auto-generated method stub
+		return userBlogRepository.findOne(idUser);
+	}
+
 }

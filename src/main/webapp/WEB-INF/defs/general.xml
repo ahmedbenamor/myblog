@@ -11,12 +11,21 @@
    <definition name="index.pu" extends="general.pu">
     <put-attribute name="title" value="My blog" />
     <put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />
+     <put-attribute name="current" value="index" />
     
   </definition>
   
   <definition name="users.pu" extends="general.pu">
     <put-attribute name="title" value="Users" />
     <put-attribute name="body" value="/WEB-INF/jsp/users.jsp" />
+       <put-attribute name="current" value="users" />
+    
+  </definition>
+  
+  <definition name="user_info.pu" extends="general.pu">
+    <put-attribute name="title" value="User info" />
+    <put-attribute name="body" value="/WEB-INF/jsp/user_info.jsp" />
+       <put-attribute name="current" value="user_info" />
     
   </definition>
 </tiles-definitions>
