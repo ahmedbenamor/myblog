@@ -2,16 +2,26 @@ package com.ahmed.blog.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ahmed.blog.entity.Blog;
+import com.ahmed.blog.entity.ItemBlog;
 import com.ahmed.blog.entity.UserBlog;
+import com.ahmed.blog.repository.BlogRepository;
+import com.ahmed.blog.repository.ItemBlogRepository;
 import com.ahmed.blog.repository.UserBlogRepository;
 
 @Service
 public class UserService {
 	@Autowired
 	private UserBlogRepository userBlogRepository;
+	@Autowired
+	private BlogRepository blogRepository;
+	@Autowired
+	private ItemBlogRepository itemBlogRepository;
 	
 	public List<UserBlog> findAll()
 	{
@@ -19,8 +29,20 @@ public class UserService {
 	}
 
 	public UserBlog findUserById(Long idUser) {
-		// TODO Auto-generated method stub
 		return userBlogRepository.findOne(idUser);
+	}
+
+	@Transactional
+	public UserBlog findUserByIdWithblogs(Long idUser) {
+		UserBlog user = findUserById(idUser);
+		List<Blog> blogs = blogRepository.findByUser(user);
+		for (Blog blog: blogs) {
+			List<ItemBlog> items = itemBlogRepository.findByBlog(blog);
+			blog.setItems(items);
+			
+		}
+		user.setBlogs(blogs);
+		return user;
 	}
 
 }

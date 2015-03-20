@@ -27,7 +27,7 @@ public class UserController {
 	public String showUser(@PathVariable String  id, Model model)
 	{
 		Long idUser = Long.valueOf(id);
-		model.addAttribute("user", userService.findUserById(idUser));
+		model.addAttribute("user", userService.findUserByIdWithblogs(idUser));
 		
 		return "user_info.pu";
 	}
