@@ -3,36 +3,43 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-  <definition name="general.pu" template="/WEB-INF/layout/template.jsp">
-    <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
-  </definition>
-  
-  
-   <definition name="index.pu" extends="general.pu">
-    <put-attribute name="title" value="My blog" />
-    <put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />
-     <put-attribute name="current" value="index" />
-    
-  </definition>
-  
-  <definition name="users.pu" extends="general.pu">
-    <put-attribute name="title" value="Users" />
-    <put-attribute name="body" value="/WEB-INF/jsp/users.jsp" />
-       <put-attribute name="current" value="users" />
-    
-  </definition>
-  
-  <definition name="user_info.pu" extends="general.pu">
-    <put-attribute name="title" value="User info" />
-    <put-attribute name="body" value="/WEB-INF/jsp/user_info.jsp" />
-       <put-attribute name="current" value="user_info" />
-    
-  </definition>
-  
-    <definition name="signup.pu" extends="general.pu">
-    <put-attribute name="title" value="User registration" />
-    <put-attribute name="body" value="/WEB-INF/jsp/user_signup.jsp" />
-       <put-attribute name="current" value="signup" />
-    
-  </definition>
+	<definition name="general.pu" template="/WEB-INF/layout/template.jsp">
+		<put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
+	</definition>
+
+
+	<definition name="index.pu" extends="general.pu">
+		<put-attribute name="title" value="My blog" />
+		<put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />
+		<put-attribute name="current" value="index" />
+
+	</definition>
+
+	<definition name="users.pu" extends="general.pu">
+		<put-attribute name="title" value="Users" />
+		<put-attribute name="body" value="/WEB-INF/jsp/users.jsp" />
+		<put-attribute name="current" value="users" />
+
+	</definition>
+
+	<definition name="user_info.pu" extends="general.pu">
+		<put-attribute name="title" value="User info" />
+		<put-attribute name="body" value="/WEB-INF/jsp/user_info.jsp" />
+		<put-attribute name="current" value="user_info" />
+
+	</definition>
+
+	<definition name="signup.pu" extends="general.pu">
+		<put-attribute name="title" value="User registration" />
+		<put-attribute name="body" value="/WEB-INF/jsp/user_signup.jsp" />
+		<put-attribute name="current" value="signup" />
+
+	</definition>
+	
+	<definition name="login.pu" extends="general.pu">
+		<put-attribute name="title" value="Login" />
+		<put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
+		<put-attribute name="current" value="login" />
+
+	</definition>
 </tiles-definitions>
