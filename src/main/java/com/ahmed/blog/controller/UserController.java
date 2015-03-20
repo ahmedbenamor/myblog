@@ -91,4 +91,19 @@ public class UserController {
 		return "redirect:/account";
 		
 	}
+	
+	@RequestMapping("/blog/remove/{id}")
+	public String removeBlog(@PathVariable("id") String id){
+		Long idl = Long.valueOf(id);
+		blogService.delete(idl);
+		return "redirect:/account";
+	}
+	@RequestMapping("/user/remove/{id}")
+	public String removeUser(@PathVariable("id") String id){
+		Long idl = Long.valueOf(id);
+		userService.delete(idl);
+		
+		return "redirect:/users";
+	}
+	
 }

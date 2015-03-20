@@ -75,4 +75,9 @@ public class UserService {
 		return user;
 	}
 
+	public void delete(Long id) {
+		userBlogRepository.delete(id);
+		
+	}
+
 }
