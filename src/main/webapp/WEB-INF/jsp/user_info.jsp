@@ -48,10 +48,29 @@
   </div>
 </div>
 </form:form>
-	<c:forEach items="${user.blogs}" var="blog">
-		<h1>${blog.name}</h1>
-		<p>${blog.url}</p>
-		<table class="table table-bordered table-hover table-striped">
+<br/><br/>
+<script>
+$(document).ready(function(){
+	  $('.nav-tabs a:first').tab('show');
+})
+</script>
+<div role="tabpanel">
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+  <c:forEach items="${user.blogs}" var="blog">
+    <li role="presentation"><a href="#blog_${blog.id}" aria-controls="blog_${blog.id}" role="tab" data-toggle="tab">${blog.name}</a></li>
+    
+    </c:forEach>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+   <c:forEach items="${user.blogs}" var="blog">
+    <div role="tabpanel" class="tab-pane active" id="blog_${blog.id}">
+    <h1>${blog.name}</h1>
+    <p>${blog.url}</p>
+    <table class="table table-bordered table-hover table-striped">
 			<thead>
 				<tr>
 					<th>Title</th>
@@ -67,5 +86,15 @@
 			</c:forEach>
 			</tbody>
 		</table>
+    </div>
+    </c:forEach>
+    
+  </div>
 
-	</c:forEach>
+</div>
+
+	
+		
+		
+
+
