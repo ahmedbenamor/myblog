@@ -5,6 +5,8 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.ahmed.blog.entity.Blog;
@@ -37,7 +39,7 @@ public class UserService {
 		UserBlog user = findUserById(idUser);
 		List<Blog> blogs = blogRepository.findByUser(user);
 		for (Blog blog: blogs) {
-			List<ItemBlog> items = itemBlogRepository.findByBlog(blog);
+			List<ItemBlog> items = itemBlogRepository.findByBlog(blog, new PageRequest(0, 10, Direction.DESC, "publishDate"));
 			blog.setItems(items);
 			
 		}
