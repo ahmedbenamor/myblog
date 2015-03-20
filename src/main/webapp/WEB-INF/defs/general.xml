@@ -25,9 +25,18 @@
 	<definition name="user_info.pu" extends="general.pu">
 		<put-attribute name="title" value="User info" />
 		<put-attribute name="body" value="/WEB-INF/jsp/user_info.jsp" />
-		<put-attribute name="current" value="user_info" />
+		<put-attribute name="current" value="users" />
 
 	</definition>
+
+
+	<definition name="account.pu" extends="general.pu">
+		<put-attribute name="title" value="User account" />
+		<put-attribute name="body" value="/WEB-INF/jsp/user_account.jsp" />
+		<put-attribute name="current" value="account" />
+
+	</definition>
+
 
 	<definition name="signup.pu" extends="general.pu">
 		<put-attribute name="title" value="User registration" />
@@ -35,7 +44,7 @@
 		<put-attribute name="current" value="signup" />
 
 	</definition>
-	
+
 	<definition name="login.pu" extends="general.pu">
 		<put-attribute name="title" value="Login" />
 		<put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />

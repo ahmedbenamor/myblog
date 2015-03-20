@@ -31,11 +31,7 @@ public class UserController {
 	@Autowired
 	private BlogService blogService;
 	
-	@ModelAttribute("user")
-	public UserBlog createUser()
-	{
-		return new UserBlog();
-	}
+	
 	
 	@ModelAttribute("blog")
 	public Blog createBlog()
@@ -45,38 +41,8 @@ public class UserController {
 	
 	
 	
-	@RequestMapping("/users")
-	public String users(Model model){
-		model.addAttribute("users",userService.findAll());
-		return "users.pu";
-		
-	}
 	
-	@RequestMapping("/users/{id}")
-	public String showUser(@PathVariable String  id, Model model)
-	{
-		Long idUser = Long.valueOf(id);
-		model.addAttribute("user", userService.findUserByIdWithblogs(idUser));
-		
-		return "user_info.pu";
-	}
 	
-	@RequestMapping("/signup")
-	public String showSignup()
-	{
-		return "signup.pu";
-	}
-	
-	@RequestMapping(value="/signup" , method= RequestMethod.POST)
-	public String doSignup(@Valid @ModelAttribute("user") UserBlog user, BindingResult result)
-	{
-		if(result.hasErrors()){
-			return "signup.pu";
-		}
-		
-		userService.save(user);
-		return "redirect:/signup.pu?success=true";
-	}
 	
 	@RequestMapping(value="/account", method= RequestMethod.GET)
 	public String account(Model model, Principal principal){
@@ -86,7 +52,7 @@ public class UserController {
 		
 		model.addAttribute("user", user);
 		
-		return "user_info.pu";
+		return "account.pu";
 		
 	}
 	
@@ -112,12 +78,6 @@ public class UserController {
 		blogService.delete(blog);
 		return "redirect:/account";
 	}
-	@RequestMapping("/user/remove/{id}")
-	public String removeUser(@PathVariable("id") String id){
-		Long idl = Long.valueOf(id);
-		userService.delete(idl);
-		
-		return "redirect:/users";
-	}
+	
 	
 }

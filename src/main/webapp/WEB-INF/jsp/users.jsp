@@ -25,7 +25,7 @@ $(document).ready(function(){
 				<td>
 				<a href='<spring:url value="/users/${user.id}"></spring:url>'> <c:out value="${user.name}"/> </a>
 				</td>
-				<td><a href='<spring:url value="/user/remove/${user.id}"></spring:url>' class="btn btn-danger triggerRemove">Remove</a></td>
+				<td><a href='<spring:url value="/users/remove/${user.id}"></spring:url>' class="btn btn-danger triggerRemove">Remove</a></td>
 			</tr>
 		</c:forEach>
 	</tbody>
