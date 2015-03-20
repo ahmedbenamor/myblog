@@ -17,6 +17,7 @@ import com.ahmed.blog.repository.ItemBlogRepository;
 import com.ahmed.blog.repository.UserBlogRepository;
 
 @Service
+@Transactional
 public class UserService {
 	@Autowired
 	private UserBlogRepository userBlogRepository;
@@ -45,6 +46,11 @@ public class UserService {
 		}
 		user.setBlogs(blogs);
 		return user;
+	}
+
+	public void save(UserBlog user) {
+		userBlogRepository.save(user);
+		
 	}
 
 }
