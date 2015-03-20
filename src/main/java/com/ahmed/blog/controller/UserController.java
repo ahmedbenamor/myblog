@@ -1,5 +1,7 @@
 package com.ahmed.blog.controller;
 
+import java.security.Principal;
+
 import org.hibernate.engine.jdbc.connections.internal.UserSuppliedConnectionProviderImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -53,10 +55,19 @@ public class UserController {
 	@RequestMapping(value="signup" , method= RequestMethod.POST)
 	public String doSignup(@ModelAttribute("user") UserBlog user)
 	{
-		String passwordClair = user.getPassword();
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		user.setPassword(encoder.encode(passwordClair));
+		
 		userService.save(user);
-		return "signup.pu";
+		return "redirect:/signup.pu?success=true";
+	}
+	
+	@RequestMapping("/account")
+	public String account(Model model, Principal principal){
+		String name = principal.getName();
+		UserBlog user = userService.findUserByNameWithBlogs(name);
+		
+		model.addAttribute("user", user);
+		
+		return "user_info.pu";
+		
 	}
 }

@@ -10,6 +10,8 @@
 	<http use-expressions="true">
 		<intercept-url pattern="/users**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/users/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/account**" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/account/**" access="hasRole('ROLE_USER')" />
 		<form-login login-page="/login" />
 		<logout logout-url="/logout"/>
 	</http>
@@ -23,7 +25,7 @@
 			join userBlog_roleBlog on userBlog.id = userBlog_roleBlog.users_id
 			join roleBlog on userBlog_roleBlog.roles_id = roleBlog.id
 			where userBlog.name = ?"
-			users-by-username-query="select name,password,1 from userBlog where name = ?"
+			users-by-username-query="select name,password,enabled from userBlog where name = ?"
 			/>
 		</authentication-provider>
 	</authentication-manager>

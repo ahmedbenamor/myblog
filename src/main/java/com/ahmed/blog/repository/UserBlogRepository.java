@@ -6,4 +6,6 @@ import com.ahmed.blog.entity.UserBlog;
 
 public interface UserBlogRepository extends JpaRepository<UserBlog, Long> {
 
+	UserBlog findByName(String name);
+
 }

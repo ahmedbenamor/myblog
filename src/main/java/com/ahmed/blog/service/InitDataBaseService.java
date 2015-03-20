@@ -45,6 +45,7 @@ public class InitDataBaseService {
 		
 		UserBlog admin = new UserBlog();
 		admin.setName("admin");
+		admin.setEnabled(true);
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		
 		admin.setPassword(encoder.encode("admin"));
