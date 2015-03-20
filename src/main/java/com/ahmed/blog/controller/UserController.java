@@ -2,12 +2,15 @@ package com.ahmed.blog.controller;
 
 import org.hibernate.engine.jdbc.connections.internal.UserSuppliedConnectionProviderImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import antlr.CppCodeGenerator;
 
 import com.ahmed.blog.entity.UserBlog;
 import com.ahmed.blog.repository.UserBlogRepository;
@@ -50,6 +53,9 @@ public class UserController {
 	@RequestMapping(value="signup" , method= RequestMethod.POST)
 	public String doSignup(@ModelAttribute("user") UserBlog user)
 	{
+		String passwordClair = user.getPassword();
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		user.setPassword(encoder.encode(passwordClair));
 		userService.save(user);
 		return "signup.pu";
 	}

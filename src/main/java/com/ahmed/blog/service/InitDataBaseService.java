@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.ahmed.blog.entity.Blog;
@@ -44,7 +45,9 @@ public class InitDataBaseService {
 		
 		UserBlog admin = new UserBlog();
 		admin.setName("admin");
-		admin.setPassword("admin");
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		
+		admin.setPassword(encoder.encode("admin"));
 		List<RoleBlog> roles = new ArrayList<RoleBlog>();
 		roles.add(role_admin);
 		roles.add(role_user);
