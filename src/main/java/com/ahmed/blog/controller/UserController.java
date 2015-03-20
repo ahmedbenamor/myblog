@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import antlr.CppCodeGenerator;
 
+import com.ahmed.blog.entity.Blog;
 import com.ahmed.blog.entity.UserBlog;
 import com.ahmed.blog.repository.UserBlogRepository;
+import com.ahmed.blog.service.BlogService;
 import com.ahmed.blog.service.UserService;
 
 @Controller
@@ -23,12 +25,22 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private BlogService blogService;
 	
 	@ModelAttribute("user")
-	public UserBlog create()
+	public UserBlog createUser()
 	{
 		return new UserBlog();
 	}
+	
+	@ModelAttribute("blog")
+	public Blog createBlog()
+	{
+		return new Blog();
+	}
+	
+	
 	
 	@RequestMapping("/users")
 	public String users(Model model){
@@ -68,6 +80,15 @@ public class UserController {
 		model.addAttribute("user", user);
 		
 		return "user_info.pu";
+		
+	}
+	
+	@RequestMapping(value="account" , method= RequestMethod.POST)
+	public String doCrateBlog(@ModelAttribute("blog") Blog blog, Principal principal)
+	{
+		String name = principal.getName();
+		blogService.save(blog, name);
+		return "redirect:/account";
 		
 	}
 }
