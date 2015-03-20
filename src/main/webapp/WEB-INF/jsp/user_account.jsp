@@ -8,7 +8,7 @@
 </button>
 
 <!-- Modal -->
-<form:form commandName="blog" cssClass="form-horizontal" method="POST">
+<form:form commandName="blog" cssClass="form-horizontal newBlog" method="POST">
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -55,7 +55,29 @@ $(document).ready(function(){
 		  $('#AlertRemove .removeBtn').attr('href',$(this).attr('href'));
 		  $('#AlertRemove').modal();
 		  
+	  });
+	  $('.newBlog').validate({
+		  rules : {
+			  name : {
+				  required : true,
+				  minlength : 1
+			  },
+			  url : {
+				  required : true,
+				  url : true
+			  }
+			  
+		  },
+		  highlight: function(element){
+				$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+			},
+			unhighlight: function(element){
+				$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+			}
+		  
 	  })
+	  
+	  
 })
 </script>
 <div role="tabpanel">
