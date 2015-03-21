@@ -57,24 +57,24 @@ public class InitDataBaseService {
 		
 		Blog blogJava = new Blog();
 		blogJava.setName("java");
-		blogJava.setUrl("http://www.ahmedbenamor.com/myblog");
+		blogJava.setUrl("http://www.tomcatexpert.com/blog/feed");
 		blogJava.setUser(admin);
 		blogRepository.save(blogJava);
 		
 		
-		ItemBlog item1 = new ItemBlog();
-		item1.setBlog(blogJava);
-		item1.setTitle("websocket");
-		item1.setLink("http://ahmedbenamor.com/JMS-WEBSOCKET");
-		item1.setPublishDate(new Date());
-		itemBlogRepository.save(item1);
-		
-		ItemBlog item2 = new ItemBlog();
-		item2.setBlog(blogJava);
-		item2.setTitle("reachness");
-		item2.setLink("http://ahmedbenamor.com/reachness");
-		item2.setPublishDate(new Date());
-		itemBlogRepository.save(item2);
+//		ItemBlog item1 = new ItemBlog();
+//		item1.setBlog(blogJava);
+//		item1.setTitle("websocket");
+//		item1.setLink("http://ahmedbenamor.com/JMS-WEBSOCKET");
+//		item1.setPublishDate(new Date());
+//		itemBlogRepository.save(item1);
+//		
+//		ItemBlog item2 = new ItemBlog();
+//		item2.setBlog(blogJava);
+//		item2.setTitle("reachness");
+//		item2.setLink("http://ahmedbenamor.com/reachness");
+//		item2.setPublishDate(new Date());
+//		itemBlogRepository.save(item2);
 		
 	}
 

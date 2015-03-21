@@ -10,19 +10,23 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 public class ItemBlog {
 	
 	@Id
 	@GeneratedValue
 	private Long id;
-	
+	@Column(length=5000)
 	private String title;
 	@Lob
-	@Column(length=500000)
+	@Type(type="org.hibernate.type.StringClobType")
+	@Column(length=Integer.MAX_VALUE)
 	private String description;
 	@Column(name="publish_date")
 	private Date publishDate;
+	@Column(length=1000)
 	private String link;
 	
 	@ManyToOne
