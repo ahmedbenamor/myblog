@@ -3,15 +3,19 @@ package com.ahmed.blog.entity;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
+
+import com.ahmed.blog.annotation.UniqueUsername;
 
 
 @Entity
@@ -21,6 +25,8 @@ public class UserBlog {
 	@GeneratedValue
 	private Long id;
 	@Size(min=3, message="Name must be at least 3 characters")
+	@Column(unique=true)
+	@UniqueUsername(message="usearname already exist")
 	private String name;
 	@Size(min=1, message="Invalid email address")
 	@Email(message="Invalid email address")
