@@ -1,0 +1,4 @@
+.container .jumbotron, .container-fluid .jumbotron {
+    padding-right: 28px;
+    padding-left: 30px;
+}

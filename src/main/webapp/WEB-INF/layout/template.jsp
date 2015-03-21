@@ -17,6 +17,8 @@
 	
 	<link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/navbar-fixed-top.css">
+	<link type="text/css" rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/default.css">
 
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
