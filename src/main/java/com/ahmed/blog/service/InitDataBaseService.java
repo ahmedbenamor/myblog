@@ -34,6 +34,10 @@ public class InitDataBaseService {
 	@PostConstruct
 	public void init()
 	{
+		if(roleBlogRepository.findByName("ROLE_ADMIN")==null)
+		{
+			
+		
 		RoleBlog role_user = new RoleBlog();
 		role_user.setName("ROLE_USER");
 		roleBlogRepository.save(role_user);
@@ -75,7 +79,7 @@ public class InitDataBaseService {
 //		item2.setLink("http://ahmedbenamor.com/reachness");
 //		item2.setPublishDate(new Date());
 //		itemBlogRepository.save(item2);
-		
+		}
 	}
 
 }
