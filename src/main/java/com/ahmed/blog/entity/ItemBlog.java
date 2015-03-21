@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -17,6 +18,8 @@ public class ItemBlog {
 	private Long id;
 	
 	private String title;
+	@Lob
+	@Column(length=500000)
 	private String description;
 	@Column(name="publish_date")
 	private Date publishDate;

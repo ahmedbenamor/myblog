@@ -11,5 +11,6 @@ import com.ahmed.blog.entity.ItemBlog;
 public interface ItemBlogRepository extends JpaRepository<ItemBlog, Long>{
 	
 	List<ItemBlog> findByBlog(Blog blog, Pageable pageable);
+	ItemBlog findByBlogAndLink(Blog blog, String link);
 
 }
