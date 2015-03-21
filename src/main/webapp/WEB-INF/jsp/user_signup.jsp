@@ -49,6 +49,7 @@
 			<input type="submit" value="Save" class="btn btn-lg btn-primary" />
 		</div>
 	</div>
+	
 </form:form>
 <script>
 $(document).ready(function(){
@@ -57,7 +58,15 @@ $(document).ready(function(){
 		rules : {
 			name : {
 				required : true,
-				minlength : 3
+				minlength : 3,
+				remote : {
+					url : "<spring:url value='/signup/available'/>",
+					type : "get",
+					data : {
+						username : function(){return $("#name").val();}
+					}
+					
+				}
 			},
 			email : {
 				required : true,
@@ -79,6 +88,11 @@ $(document).ready(function(){
 		},
 		unhighlight: function(element){
 			$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+		},
+		messages : {
+			name : {
+				remote : "username already exist!" 
+			}
 		}
 	}		
 	);

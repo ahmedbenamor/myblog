@@ -8,6 +8,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ahmed.blog.entity.Blog;
 import com.ahmed.blog.entity.UserBlog;
@@ -46,5 +48,12 @@ public class RegisterController {
 		
 		userService.save(user);
 		return "redirect:/signup.pu?success=true";
+	}
+	
+	@RequestMapping("/available")
+	@ResponseBody
+	public String available(@RequestParam String username){
+		Boolean exist = userService.findByName(username)== null;
+		return exist.toString();
 	}
 }
